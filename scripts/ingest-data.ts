@@ -31,8 +31,10 @@ export const run = async () => {
     console.log('creating vector store...');
     /*create and store the embeddings in the vectorStore*/
     const embeddings = new OpenAIEmbeddings();
+    console.log('create openAI Embeddings')
     const index = pinecone.Index(PINECONE_INDEX_NAME); //change to your own index name
 
+    console.log('vector space created')
     //embed the PDF documents
     await PineconeStore.fromDocuments(docs, embeddings, {
       pineconeIndex: index,
